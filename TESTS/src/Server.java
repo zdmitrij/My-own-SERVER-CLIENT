@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -14,15 +11,18 @@ public class Server {
             Socket clientSocket = serverSocket.accept();
             System.out.println("Client accepted" + (count++));
 
-            OutputStreamWriter writer = new OutputStreamWriter(
-                    clientSocket.getOutputStream());
+            BufferedWriter writer =
+                    new BufferedWriter(
+                            new OutputStreamWriter(
+                                    clientSocket.getOutputStream()));
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(
                             clientSocket.getInputStream()));
 
             String request = reader.readLine();
-            String response = count + ", your message length is" + request.length() + "\n";
+            String response = count + ", your message length is" + request.length();
             writer.write(response);
+            writer.newLine();
             writer.flush();
 
             reader.close();
