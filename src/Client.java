@@ -10,6 +10,7 @@ public class Client {
                 Socket socket = new Socket("www.yandex.ru", 80);
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
                 BufferedReader reader = new BufferedReader((new InputStreamReader(socket.getInputStream())));
+                
         ) {
             System.out.println("Connected to server");
             String request = "GET";
