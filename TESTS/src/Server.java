@@ -15,7 +15,7 @@ public class Server {
             writer.write("HTTP/1.0 200 OK\n" +
                     "Content-type: text/html\n" +
                     "\n" +
-                    "<h1>Java<h1> ");
+                    "<h1>You are client</h1>"  + count + "\n");
             writer.flush();
             writer.close();
 
